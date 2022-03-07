@@ -1,68 +1,113 @@
 import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter, Route, Routes, useNavigate } from "react-router-dom";
 import { Navigation, Keyboard, Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
-
 import "swiper/css";
 import "swiper/css/navigation";
+import "swiper/css/pagination";
 
-/*const getTestPhotos = () => { 
-  let num;
-  let array_images = [];
-  for (let i = 1; i < 221; i++) {
-    num = i;
-    for (let k = 0; k < 2; k++)
-      if (i.toString().length < 3)
-        i = "0" + i;
-    array_images.push({
-      id: num,
-      name: `poisk_company_${i}.jpg`,
-      desc: `Placeholder ${num}`,
-      size: {
-        width: 1280,
-        height: 960
-      }
-    })
+const DevMode = true;
+
+function rgb2hsl(color) {
+  let red = parseInt(color.substring(0, 2), 16) / 255,
+    green = parseInt(color.substring(2, 4), 16) / 255,
+    blue = parseInt(color.substring(4, 6), 16) / 255;
+  let max = Math.max(red, green, blue),
+    min = Math.min(red, green, blue);
+  let hue,
+    saturation,
+    lightness = (max + min) / 2;
+  if (max == min) hue = saturation = 0;
+  else {
+    let d = max - min;
+    saturation = lightness > 0.5 ? d / (2 - max - min) : d / (max + min);
+    switch (max) {
+      case red:
+        hue = (green - blue) / d + (green < blue ? 6 : 0);
+        break;
+      case green:
+        hue = (blue - red) / d + 2;
+        break;
+      case blue:
+        hue = (red - green) / d + 4;
+        break;
+    }
+    hue /= 6;
   }
-  return array_images;
-}*/
+  return [hue, saturation, lightness];
+}
+
+function changeColor(color) {
+  let HSL = rgb2hsl(color);
+  let font_color;
+  if ((HSL[0] < 0.55 && HSL[2] >= 0.5) || (HSL[0] >= 0.55 && HSL[2] >= 0.75)) font_color = "#000000";
+  else font_color = "#FFFFFF";
+  return font_color;
+}
+
+function randomNumber(min, max) {
+  let rand = min - 0.5 + Math.random() * (max - min + 1);
+  return Math.round(rand);
+}
+
+function CloseButton(color) {
+  return (
+    <svg width="35" height="35" viewBox="0 0 350 350" fill={color}>
+      <path d="M165,0.008C74.019,0.008,0,74.024,0,164.999c0,90.977,74.019,164.992,165,164.992s165-74.015,165-164.992     C330,74.024,255.981,0.008,165,0.008z M165,299.992c-74.439,0-135-60.557-135-134.992S90.561,30.008,165,30.008     s135,60.557,135,134.991C300,239.436,239.439,299.992,165,299.992z" />
+      <path d="M165,130.008c-8.284,0-15,6.716-15,15v99.983c0,8.284,6.716,15,15,15s15-6.716,15-15v-99.983     C180,136.725,173.284,130.008,165,130.008z" />
+      <path d="M165,70.011c-3.95,0-7.811,1.6-10.61,4.39c-2.79,2.79-4.39,6.66-4.39,10.61s1.6,7.81,4.39,10.61     c2.79,2.79,6.66,4.39,10.61,4.39s7.81-1.6,10.609-4.39c2.79-2.8,4.391-6.66,4.391-10.61s-1.601-7.82-4.391-10.61     C172.81,71.61,168.95,70.011,165,70.011z" />
+    </svg>
+  );
+}
+
+function SwitchColor(element, color, target) {
+  document.querySelector(element).style[target] = color;
+}
+
+function FontColor(color) {
+  let fontColor;
+  fontColor = changeColor(color.substr(1));
+  return fontColor;
+}
 
 const Description = (props) => {
-  const { descriptionVisible, ShowDescription, HideDescription, description } = props;
+  const { descriptionVisible, ShowDescription, HideDescription, description, accentColor, secondColor } = props;
+  SwitchColor(".swiper-pagination-progressbar-fill", secondColor, "background");
+  SwitchColor(".swiper", accentColor, "background");
+  SwitchColor(".swiper-pagination", accentColor, "background");
+  SwitchColor(".swiper-button-next", secondColor, "color");
+  SwitchColor(".swiper-button-prev", secondColor, "color");
+
   return (
     <div className="description">
-      <div className={`desc${descriptionVisible ? " visible" : " hidden"}`} onClick={HideDescription} onMouseLeave={HideDescription}>
-        {description}
+      <div className={`desc${descriptionVisible ? " visible" : " hidden"}`} onClick={HideDescription} onMouseLeave={HideDescription} style={{ background: secondColor }}>
+        <p style={{ color: FontColor(secondColor) }}>{description}</p>
       </div>
-      <div className={`info-button${descriptionVisible ? " hidden" : " visible"}`} onMouseEnter={ShowDescription}>
-        <img src="/static/photo/info.png" />
+      <div className={`info-button${!descriptionVisible ? " visible" : " hidden"}`} onMouseEnter={ShowDescription}>
+        {CloseButton(secondColor)}
       </div>
     </div>
   );
 };
 
 const Photo = (props) => {
-  const [descriptionVisible, switchdescriptionVisible] = useState(false);
   let photo = props.photo;
-  let photo_name;
-  let extension = photo.name.split(".").pop();
-
-  extension !== "jpg" ? (photo_name = photo.name + ".jpg") : (photo_name = photo.name);
+  const [descriptionVisible, switchdescriptionVisible] = useState(false);
+  const [accentColor] = useState(photo.accentColor.first);
+  const [secondColor] = useState(photo.accentColor.second);
 
   return (
     <>
       <LazyLoadImage
         key={photo.id}
         alt={props.isActive ? photo.desc : null}
-        title={props.isActive ? photo.desc : null}
         height="100%"
         width="100%"
         effect="blur"
-        src={path_album + `${photo_name}`}
+        src={`/static/images/${photo.name}`}
         placeholderSrc="/static/loading.svg"
-        style={{ maxWidth: photo.size.width }}
+        style={{ maxWidth: 1920 }}
       />
       {props.isActive ? (
         <Description
@@ -70,6 +115,8 @@ const Photo = (props) => {
           ShowDescription={() => switchdescriptionVisible(true)}
           HideDescription={() => switchdescriptionVisible(false)}
           description={photo.desc}
+          accentColor={accentColor}
+          secondColor={secondColor}
         />
       ) : null}
     </>
@@ -86,30 +133,27 @@ const Photos = (props) => {
     changeCurrentIndex(active);
   }
 
-  const InitActiveIndex = () => {
-    if (swiper?.isEnd) {
+  useEffect(() => {
+    if (swiper) {
       let index = currentPhotoIndex - 1;
-      document.title = `${index + 1}. Фотографии`;
+      document.title = `${index + 1}. Gallery`;
       swiper.slideTo(index);
     }
-  };
+  });
 
   return (
     <>
-      <div className="close-button">
-        <a href={url_close}>
-          <img src="/static/photo/close.png" />
-        </a>
-      </div>
       <Swiper
         onSwiper={setSwiper}
         modules={[Navigation, Keyboard, Pagination]}
-        onAfterInit={InitActiveIndex()}
         onSlideChangeTransitionEnd={ChangeActiveIndex}
         navigation={true}
-        pagination={{ type: "fraction" }}
+        pagination={{ type: "progressbar" }}
         keyboard={{ enabled: true }}
         grabCursor={true}
+        resistanceRatio={0.7}
+        rewind={true}
+        speed={300}
       >
         {photos.map((photo) => {
           return (
@@ -126,62 +170,39 @@ const Photos = (props) => {
 };
 
 const PhotosWrapper = () => {
-  const navigate = useNavigate();
   const [photos, setPhotos] = useState([]);
-  const [currentPhotoIndex, setCurrentPhotoIndex] = useState(photo_index);
+  const [currentPhotoIndex, setCurrentPhotoIndex] = useState(randomNumber(1, 8));
 
   const fetching = () => {
-    if (photos == "") {
-      fetch(url_api)
-        .then((res) => res.json())
-        .then(
-          (result) => {
-            setPhotos(result);
-          },
-          (error) => {
-            console.log(error);
-            fetch("../../photo/src/photos.json") //comment this fetch before build
-              .then((res) => res.json())
-              .then((result) => {
-                console.log(`Dev mode\nTest photos: `, result);
-                setPhotos(result);
-              });
-          }
-        );
-    }
+    let api = "/url_api";
+    DevMode ? (api = "/static/images/photos.json") : null;
+    fetch(api)
+      .then((res) => res.json())
+      .then(
+        (result) => {
+          setPhotos(result);
+          DevMode ? console.log(`Dev mode\nTest photos: `, result) : null;
+        },
+        (error) => {
+          console.log("Error:\n", error);
+        }
+      );
   };
 
   useEffect(() => {
     fetching();
-  });
+  }, []);
 
   const changeCurrentIndex = (currentNumPhoto) => {
-    document.title = `${currentNumPhoto}. Фотографии`;
+    document.title = `${currentNumPhoto}. Gallery`;
     setCurrentPhotoIndex(currentNumPhoto);
-    //navigate(`/${section}/photo/${currentNumPhoto}.html`);
   };
 
   return (
     <div className="gallery-photo-block">
-      <Routes>
-        <Route
-          path="/photo_gallery.html"
-          element={<Photos photos={photos} currentPhotoIndex={currentPhotoIndex} changeCurrentIndex={changeCurrentIndex} />}
-        />
-        <Route
-          path={`/${section}/photo/:${currentPhotoIndex}.html`}
-          element={<Photos photos={photos} currentPhotoIndex={currentPhotoIndex} changeCurrentIndex={changeCurrentIndex} />}
-        />
-      </Routes>
+      <Photos photos={photos} currentPhotoIndex={currentPhotoIndex} changeCurrentIndex={changeCurrentIndex} />
     </div>
   );
 };
 
-ReactDOM.render(
-  <React.StrictMode>
-    <BrowserRouter>
-      <PhotosWrapper />
-    </BrowserRouter>
-  </React.StrictMode>,
-  document.querySelector(".gallery-photo-container")
-);
+ReactDOM.render(<PhotosWrapper />, document.querySelector(".gallery-photo-container"));
