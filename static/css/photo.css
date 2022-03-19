@@ -1,12 +1,14 @@
-body {
-  overflow: hidden;
-  margin: 0;
-  padding: 0;
-  background-image: url(/static/base/bg_grd.png);
-  background-size: contain;
+.mid {
+  height: 1080px;
+  align-items: stretch;
 }
 
-img {
+.gallery-photo-block {
+  width: 97vw;
+  max-width: 1270px;
+}
+
+.lazy-load-image-loaded img {
   display: block;
   position: relative;
   border: 0;
@@ -16,11 +18,16 @@ img {
   object-fit: contain;
 }
 
-a {
+.close-button a {
   display: inline-block;
   text-decoration: none;
 }
 
+html,
+.mid,
+.bg,
+#mainnav,
+#brand_image a img,
 .swiper,
 .swiper-pagination,
 .swiper-button-next,
@@ -39,7 +46,8 @@ a {
 
 .swiper-button-next,
 .swiper-button-prev,
-.info-button {
+.info-button,
+.close-button img {
   position: absolute;
   z-index: 10;
   filter: drop-shadow(0px 0px 2px black);
@@ -52,6 +60,12 @@ a {
   right: 0;
   width: 35px;
   margin: auto;
+}
+
+.close-button img {
+  top: 10px;
+  right: 10px;
+  width: 50px;
 }
 
 .desc {
@@ -84,11 +98,10 @@ a {
 }
 
 .lazy-load-image-background.blur:not(.lazy-load-image-loaded) {
-  animation: Blink 4s ease-in-out infinite;
+  animation: Blink 2s ease-in-out infinite;
 }
 
 .lazy-load-image-background.blur {
-  /*filter: blur(3px);*/
   background-size: 100px 100px !important;
   background-repeat: no-repeat;
   background-position: center;
@@ -114,20 +127,12 @@ a {
   opacity: 1;
 }
 
-.swiper-wrapper {
-  height: 100vh !important;
-}
-
 .swiper-pagination-fraction {
   left: 13px;
   top: 15px;
 }
 
 @media screen and (max-width: 425px) {
-  .swiper-wrapper {
-    height: 100% !important;
-  }
-
   .lazy-load-image-background.blur {
     background-size: 50px 50px !important;
   }
@@ -142,17 +147,4 @@ a {
   50% {
     background-color: #69696900;
   }
-}
-
-::-webkit-scrollbar {
-  width: 4px;
-}
-
-::-webkit-scrollbar-track {
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb {
-  border-radius: 4px;
-  background-color: #6b6b6b;
 }

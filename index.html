@@ -3,180 +3,78 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>SHISEN</title>
     <link href="/static/favicon.svg" type="image/svg+xml" rel="icon" />
+    <link href="/static/css/normalize.css" rel="stylesheet" />
     <link href="/static/css/base.css" rel="stylesheet" />
+    <link href="/static/css/header.css" rel="stylesheet" />
     <link href="/static/css/mainnav.css" rel="stylesheet" />
     <link href="/static/css/main-nav-modal.css" rel="stylesheet" />
-    <link href="/static/css/mainnav-adaptive.css" rel="stylesheet" />
     <link href="/static/css/navigate.css" rel="stylesheet" />
     <!--Main nav-->
     <script>
-      const main_nav_header = [
+      let main_nav_header = [
         { id: 1, name: "SOMETHING", type: "production" },
         { id: 2, name: "SOMETHING", type: "service" },
         { id: 3, name: "SOMETHING", type: "support" },
         { id: 4, name: "SOMETHING", type: "wholesale" },
       ];
 
-      const main_nav_bottom = {
+      let main_nav_bottom = {
         first_line: [
-          { id: "1", name: "Something", link: "#", type: "production", key: "panel" },
-          { id: "2", name: "Something", link: "#", type: "production", key: "znz" },
-          { id: "3", name: "Something", link: "#", type: "production", key: "pult" },
-          { id: "4", name: "Something", link: "#", type: "service", key: "table" },
-          { id: "5", name: "Something", link: "#", type: "service", key: "edev" },
-          { id: "6", name: "Something", link: "#", type: "service", key: "telemech" },
+          {
+            id: 1,
+            name: "Projects",
+            link: "/projects",
+            type: "production",
+            key: "znz",
+            sub: [
+              {
+                id: 1,
+                name: "Gallery",
+                link: "/projects/gallery",
+                type: "production",
+                key: "znz",
+                logo: "gallery.png",
+                description: "Responsive gallery with styling that interacts with the entire page",
+              },
+            ],
+          },
+          { id: 2, name: "Something", link: "#", type: "production", key: "pult" },
+          { id: 3, name: "Something", link: "#", type: "production", key: "panel" },
+          { id: 4, name: "Something", link: "#", type: "service", key: "table" },
+          { id: 5, name: "Something", link: "#", type: "service", key: "edev" },
+          { id: 6, name: "Something", link: "#", type: "service", key: "telemech" },
         ],
         second_line: [
-          { id: "7", name: "Something", link: "#", type: "support", key: "automotion" },
-          { id: "8", name: "Something", link: "#", type: "support", key: "drives" },
-          { id: "9", name: "Something", link: "#", type: "support", key: "service" },
-          { id: "10", name: "Something", link: "#", type: "wholesale", key: "prod" },
-          { id: "11", name: "Something", link: "#", type: "wholesale", key: "equipment" },
-          { id: "12", name: "Something", link: "#", type: "wholesale", key: "component" },
+          { id: 7, name: "Something", link: "#", type: "support", key: "automotion" },
+          { id: 8, name: "Something", link: "#", type: "support", key: "drives" },
+          { id: 9, name: "Something", link: "#", type: "support", key: "service" },
+          { id: 10, name: "Something", link: "#", type: "wholesale", key: "prod" },
+          { id: 11, name: "Something", link: "#", type: "wholesale", key: "equipment" },
+          { id: 12, name: "Something", link: "#", type: "wholesale", key: "component" },
         ],
       };
-      const current_section = "drives";
     </script>
     <!--Main nav-->
-    <!--Navigation panel-->
+    <!--Text Footer-->
     <script>
-      window.section = { name: "Projects", type: "production", current_link: window.location.pathname };
-      window.navigation_data = [
-        { id: 1, name: "Gallery", link: "/gallery.html" },
-        {
-          id: 2,
-          name: "Something",
-          link: "/gallery.html#something_1",
-          sub: [
-            { id: 1, name: "Sub Something", link: "#1" },
-            { id: 2, name: "Sub Something", link: "#2" },
-            { id: 3, name: "Sub Something", link: "#3" },
-          ],
-        },
-        { id: 3, name: "Something", link: "/gallery.html#something_2" },
-        { id: 4, name: "Something", link: "/gallery.html#something_3" },
-        { id: 5, name: "Something", link: "/gallery.html#something_4" },
-        { id: 6, name: "Something", link: "/gallery.html#something_5" },
-        { id: 7, name: "Something", link: "/gallery.html#something_6" },
-        { id: 8, name: "Something", link: "/gallery.html#something_7" },
-        { id: 9, name: "Something", link: "/gallery.html#something_8" },
+      let text_footer = [
+        { id: 1, link: "https://vk.com/shiseni", name: "VKontakte", short: "VK" },
+        { id: 2, link: "https://steamcommunity.com/id/shiseni/", name: "Steam", short: "Steam" },
+        { id: 3, name: "E-mail: alex-ench@yandex.ru", short: "alex-ench@yandex.ru" },
+        { id: 4, link: "#", name: "First Link", short: "Link" },
+        { id: 5, link: "#", name: "Second Link", short: "Link" },
+        { id: 6, link: "#", name: "Third Link", short: "Link" },
+        { id: 7, link: "#", name: "Four Link", short: "Link" },
+        { id: 8, name: "SHISEN, 2022", short: "SHISEN" },
       ];
     </script>
-    <!--Navigation panel-->
+    <!--Text Footer-->
   </head>
 
   <body>
-    <div class="bg">
-      <div class="bw-doc">
-        <div class="header"></div>
-      </div>
-      <div class="bw-doc">
-        <div class="header">
-          <div class="header-nav"></div>
-          <!--<div id="brand_image">
-          <a href="/">
-            <img src="/static/brand.png" />
-          </a>
-        </div>
-        <div id="slogan">
-          <p>Ad ex pariatur excepteur Lorem Lorem ipsum dolore ipsum deserunt Lorem mollit elit.</p>
-          <p>Qui ullamco sunt cillum commodo et sit ut veniam quis adipisicing ipsum nisi cupidatat.</p>
-          <p>Incididunt culpa sunt deserunt magna ex est tempor sint reprehenderit ut pariatur ex laboris in.</p>
-          <p>Incididunt esse duis fugiat pariatur irure enim qui exercitation eu laboris eiusmod nulla adipisicing sint.</p>
-        </div>
-        <div id="slogan-cut2">
-          <p>Do adipisicing eiusmod laborum est ad est.</p>
-          <p>Occaecat excepteur eu eu excepteur nostrud aliquip.</p>
-          <p>Ea et ipsum proident anim commodo qui do veniam aute.</p>
-          <p>Do non voluptate do ea dolor officia ad laboris.</p>
-        </div>
-        <div id="slogan-cut">
-          <p>Anim ut enim velit enim laborum.</p>
-          <p>Aliquip cupidatat laborum eu nulla.</p>
-          <p>Nostrud mollit quis officia nostrud sit.</p>
-          <p>In esse ullamco irure eiusmod culpa.</p>
-        </div>
-        <div id="header_icons">
-          <div class="" id="ico_main_page">
-            <a href="/">
-              <svg display="block" width="48" height="48">
-                <g stroke-width="1.5" fill="none">
-                  <path
-                    d="M 12.01673,22.957693 22.964651,12.009772 c 0.277655,-0.268004 0.624804,-0.574293 0.978389,-0.57558 0.353906,0.0013 0.714568,0.307576 0.991902,0.57558 l 10.947921,10.947921 0.04279,14.944484 c -0.03249,0.892809 -0.647648,1.577778 -1.596116,1.596116 l -7.168848,0 0,-9.024924 C 27.151037,29.763305 26.732141,29.365 26.008886,29.321566 l -2.065846,0 -2.052012,0 c -0.723898,0.04343 -1.142151,0.441739 -1.151803,1.151803 l 0,9.024924 -7.16917,0 c -0.948468,-0.01834 -1.563299,-0.703307 -1.595794,-1.596116 l 0.04247,-14.944484 z" />
-                  <path
-                    d="M 12.184031,22.80133 9.2485412,25.716551 C 7.8988725,26.794677 5.4475909,24.385221 6.552421,22.880155 L 22.415131,6.9991062 c 0.405062,-0.3220544 0.823958,-0.4623299 1.532413,-0.4973988 0.708777,0.035069 1.12703,0.1753444 1.532413,0.4973988 L 41.45656,22.870825 c 1.104831,1.504744 -1.460023,3.923852 -2.810013,2.845726 L 35.82302,22.912328" />
-                  <g>
-              </svg>
-              <span>home</span>
-            </a>
-          </div>
-          <div class="" id="ico_about_page">
-            <a href="/about.html">
-              <svg display="block" width="48" height="48">
-                <g stroke-width="1.5" fill="none">
-                  <path
-                    d="m 16.525239,6.7068844 c 3.700832,0 6.701576,3.0007436 6.701576,6.7015766 0,3.700108 -3.000744,6.701938 -6.701576,6.701938 -3.699746,0 -6.7015767,-3.00183 -6.7015767,-6.701938 0,-3.700833 3.0018307,-6.7015766 6.7015767,-6.7015766 z" />
-                  <path
-                    d="m 3.6395431,34.417652 c -0.068487,0.663853 -0.09965,1.206675 -0.084069,1.524469 0.1587158,3.125398 10.1154159,3.37253 13.1139859,3.349701 2.998207,0.02283 12.954182,-0.224303 13.11326,-3.349701 3.895061,-0.119942 14.554024,-0.244958 14.664545,-3.414202 0.05544,-1.076948 -1.821971,-6.823331 -2.427845,-7.562555 -1.742612,-2.124908 -5.829726,-3.60082 -9.096445,-3.701557 -3.053649,-0.02319 -7.78686,0.917145 -9.440693,2.659033 -2.081424,-0.9378 -4.470133,-1.50019 -6.812822,-1.571939 -4.216116,0.130452 -8.0760268,1.876688 -10.5339479,4.524488 -0.9298283,1.304514 -2.0814239,4.350916 -2.4959693,7.542263 z" />
-                  <path
-                    d="m 32.269993,8.6951805 c 2.843477,0 5.148843,2.3053655 5.148843,5.1481185 0,2.843114 -2.305366,5.149567 -5.148843,5.149567 -2.843115,0 -5.149567,-2.306453 -5.149567,-5.149567 0,-2.842753 2.306452,-5.1481185 5.149567,-5.1481185 z" />
-                  <path
-                    d="m 23.482644,23.92284 c 1.118621,0.748646 2.263694,1.208487 3.080827,2.196294 2.292682,2.773541 3.049663,7.165041 3.219974,9.822987" />
-                  <g>
-              </svg>
-              <span>about</span>
-            </a>
-          </div>
-          <div class="" id="ico_onmap_page">
-            <a href="/onmap.html">
-              <svg display="block" width="48" height="48">
-                <g stroke-width="1.5" fill="none">
-                  <path
-                    d="m 24.000528,38.36705 c 3.359108,-12.266052 9.045941,-16.003436 9.045941,-21.687455 0,-4.995026 -4.051971,-9.046645 -9.045942,-9.046645 -4.995376,0 -9.046996,4.051619 -9.046996,9.046645 0,5.651646 5.919432,9.668076 9.046996,21.687455 z m 0,-26.216936 c 2.50156,0 4.52913,2.028273 4.52913,4.529481 0,2.50191 -2.02757,4.529479 -4.52913,4.529479 -2.501559,0 -4.529479,-2.027569 -4.529479,-4.529479 0,-2.501208 2.02792,-4.529481 4.529479,-4.529481 z" />
-                  <g>
-              </svg>
-              <span style="margin:-4px;width:56px">on map</span>
-            </a>
-          </div>
-        </div>-->
-        </div>
-      </div>
-      <div class="bw-doc" id="mainnav"></div>
-      <div id="main_container" class="bw-doc">
-        <div class="mid" style="background-color: transparent">
-          <div class="subnav-container">
-            <div class="nav-bar"></div>
-          </div>
-          <div class="col-xs-9" style="padding: 0"></div>
-        </div>
-      </div>
-      <div class="bw-doc" id="nav-footer">
-        <div class="nav_footer"></div>
-      </div>
-      <!--<div class="bw-doc">
-        <div class="text-footer">
-          <p class="text-contacts" id="nav_footer_line_1">
-            <a href="https://vk.com/shiseni" target="blank">VKontakte</a>
-          </p>
-          <p class="text-contacts" id="nav_footer_line_1">
-            <a href="https://steamcommunity.com/id/shiseni/" target="blank">Steam</a>
-          </p>
-          <p class="text-contacts" id="nav_footer_line_2"><span class="nav_footer_min_contacts">E-mail:</span>alex-ench@yandex.ru</p>
-          <p class="text-contacts" id="nav_footer_line_1">
-            <a href="#">Link</a>
-          </p>
-          <p class="text-contacts" id="nav_footer_line_1">
-            <a href="#">Another link</a>
-          </p>
-          <p id="nav_footer_line_1">
-            <span>SHISEN, 2022</span>
-          </p>
-        </div>
-      </div>-->
-    </div>
-    <!--<script src="/static/js/mainnav.js"></script>-->
-    <script src="/static/js/navigation.js"></script>
+    <div class="app"></div>
   </body>
 </html>

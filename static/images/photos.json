@@ -1,122 +1,182 @@
 [
   {
     "id": 1,
-    "name": "1.png",
     "desc": "Maika Sakuranomiya (Blend S)",
-    "accentColor": { "first": "#fcc7cc", "second": "#bcdfee" }
+    "name": "1.png",
+    "accentColor": {
+      "first": "#fcc7cc",
+      "second": "#bcdfee"
+    }
   },
   {
     "id": 2,
-    "name": "2.png",
     "desc": "Tooru (Kobayashi-san Chi no Maid Dragon)",
-    "accentColor": { "first": "#3a4158", "second": "#f9c978" }
+    "name": "2.png",
+    "accentColor": {
+      "first": "#3a4158",
+      "second": "#f9c978"
+    }
   },
   {
     "id": 3,
-    "name": "3.png",
     "desc": "Suzumiya Haruhi (Suzumiya Haruhi no Shoushitsu)",
-    "accentColor": { "first": "#a3625a", "second": "#f3f6f1" }
+    "name": "3.png",
+    "accentColor": {
+      "first": "#a3625a",
+      "second": "#f3f6f1"
+    }
   },
   {
     "id": 4,
-    "name": "4.png",
     "desc": "Nezuko Kamado (Kimetsu no Yaiba)",
-    "accentColor": { "first": "#ffa1a6", "second": "#65965e" }
+    "name": "4.png",
+    "accentColor": {
+      "first": "#ffa1a6",
+      "second": "#65965e"
+    }
   },
   {
     "id": 5,
-    "name": "5.png",
     "desc": "Kurisu Makise (Steins;Gate)",
-    "accentColor": { "first": "#2e383d", "second": "#6b180f" }
+    "name": "5.png",
+    "accentColor": {
+      "first": "#2e383d",
+      "second": "#6b180f"
+    }
   },
   {
     "id": 6,
-    "name": "6.png",
     "desc": "Rei Ayanami (Neon Genesis Evangelion)",
-    "accentColor": { "first": "#0f102f", "second": "#7f87d0" }
+    "name": "6.png",
+    "accentColor": {
+      "first": "#0f102f",
+      "second": "#7f87d0"
+    }
   },
   {
     "id": 7,
-    "name": "7.png",
     "desc": "Yoshino Nanase (Wake Up, Girls!)",
-    "accentColor": { "first": "#058266", "second": "#00c7e0" }
+    "name": "7.png",
+    "accentColor": {
+      "first": "#058266",
+      "second": "#00c7e0"
+    }
   },
   {
     "id": 8,
-    "name": "8.png",
     "desc": "Nishikino Maki (Love Live! School Idol Project)",
-    "accentColor": { "first": "#2b3942", "second": "#fd3c48" }
+    "name": "8.png",
+    "accentColor": {
+      "first": "#2b3942",
+      "second": "#fd3c48"
+    }
   },
   {
     "id": 9,
-    "name": "9.png",
     "desc": "Hotaru Ichijou (Non Non Biyori)",
-    "accentColor": { "first": "#ffb9b9", "second": "#8182ba" }
+    "name": "9.png",
+    "accentColor": {
+      "first": "#ffb9b9",
+      "second": "#8182ba"
+    }
   },
   {
     "id": 10,
-    "name": "10.png",
     "desc": "Eru Chitanda (Hyouka)",
-    "accentColor": { "first": "#dde8f7", "second": "#494e56" }
+    "name": "10.png",
+    "accentColor": {
+      "first": "#dde8f7",
+      "second": "#494e56"
+    }
   },
   {
     "id": 11,
-    "name": "11.png",
     "desc": "Azusa Nakano (K-On!)",
-    "accentColor": { "first": "#ff9eb0", "second": "#f3d297" }
+    "name": "11.png",
+    "accentColor": {
+      "first": "#ff9eb0",
+      "second": "#f3d297"
+    }
   },
   {
     "id": 12,
-    "name": "12.png",
     "desc": "Rena Kariu (ReLIFE)",
-    "accentColor": { "first": "#d38d89", "second": "#bdbdbd" }
+    "name": "12.png",
+    "accentColor": {
+      "first": "#d38d89",
+      "second": "#bdbdbd"
+    }
   },
   {
     "id": 13,
-    "name": "13.png",
     "desc": "Kyouko Sakura (Mahou Shoujo Madoka★Magica)",
-    "accentColor": { "first": "#ff5f5f", "second": "#fa3c5f" }
+    "name": "13.png",
+    "accentColor": {
+      "first": "#ff5f5f",
+      "second": "#fa3c5f"
+    }
   },
   {
     "id": 14,
-    "name": "14.png",
     "desc": "Yui (Angel Beats!)",
-    "accentColor": { "first": "#5a5095", "second": "#fa81b6" }
+    "name": "14.png",
+    "accentColor": {
+      "first": "#5a5095",
+      "second": "#fa81b6"
+    }
   },
   {
     "id": 15,
-    "name": "15.png",
     "desc": "Yuudachi (Kantai Collection: KanColle)",
-    "accentColor": { "first": "#ac3b3f", "second": "#e5d1ae" }
+    "name": "15.png",
+    "accentColor": {
+      "first": "#ac3b3f",
+      "second": "#e5d1ae"
+    }
   },
   {
     "id": 16,
-    "name": "16.png",
     "desc": "Merry (Hai to Gensou no Grimgar)",
-    "accentColor": { "first": "#0e4f50", "second": "#26304d" }
+    "name": "16.png",
+    "accentColor": {
+      "first": "#0e4f50",
+      "second": "#26304d"
+    }
   },
   {
     "id": 17,
-    "name": "17.png",
     "desc": "Chisaki Hiradaira (Nagi no Asu kara)",
-    "accentColor": { "first": "#646096", "second": "#00729b" }
+    "name": "17.png",
+    "accentColor": {
+      "first": "#646096",
+      "second": "#00729b"
+    }
   },
   {
     "id": 18,
-    "name": "18.png",
     "desc": "Hifumi Takimoto (New Game!)",
-    "accentColor": { "first": "#7b475b", "second": "#f85e6b" }
+    "name": "18.png",
+    "accentColor": {
+      "first": "#7b475b",
+      "second": "#f85e6b"
+    }
   },
   {
     "id": 19,
-    "name": "19.png",
     "desc": "Megumin (Kono Subarashii Sekai ni Shukufuku wo!)",
-    "accentColor": { "first": "#f39950", "second": "#c24448" }
+    "name": "19.png",
+    "accentColor": {
+      "first": "#f39950",
+      "second": "#c24448"
+    }
   },
   {
     "id": 20,
-    "name": "20.png",
     "desc": "Rin (Porter Robinson & Madeon – Shelter)",
-    "accentColor": { "first": "#af767f", "second": "#a59cb2" }
+    "name": "20.png",
+    "accentColor": {
+      "first": "#af767f",
+      "second": "#a59cb2"
+    }
   }
 ]

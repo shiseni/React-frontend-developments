@@ -4,14 +4,16 @@ const HtmlWebPackPlugin = require("html-webpack-plugin");
 module.exports = {
   mode: "development",
   devServer: {
+    historyApiFallback: true,
     static: __dirname,
-    open: ["/index.html"],
+    open: ["/"],
   },
 
-  entry: "./index.js",
+  entry: __dirname + "/index.js",
   output: {
     filename: "index.js",
     path: path.resolve(__dirname, "/static/js"),
+    publicPath: "/",
   },
   plugins: [
     new HtmlWebPackPlugin({
