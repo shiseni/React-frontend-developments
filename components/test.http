@@ -1,1 +1,0 @@
-GET https://api.steampowered.com/IPlayerService/GetAnimatedAvatar/v1/?key=EB5D242E270411FA85E61E18ED111D6E&steamid=76561198114887225 HTTP/1.1
