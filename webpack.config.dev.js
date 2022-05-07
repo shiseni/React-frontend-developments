@@ -24,6 +24,7 @@ module.exports = {
   ],
   module: {
     rules: [
+      { test: /\.(jpg|JPG|jpeg|png|gif|mp3|svg|ttf|woff2|woff|eot)$/, loader: "file-loader" },
       {
         test: /\.js$/,
         exclude: /node_modules/,

@@ -102,7 +102,7 @@ const Photo = (props) => {
     <>
       <div className="close-button">
         <Link to="/projects/gallery">
-          <img src="/static/photo/close.png" />
+          <img src="/static/close.svg" />
         </Link>
       </div>
       <LazyLoadImage

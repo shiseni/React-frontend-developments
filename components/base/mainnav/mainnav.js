@@ -10,7 +10,7 @@ const BottomSection = (props) => {
   return (
     <>
       {section.id !== 1 ? <li className={active + "divider-" + section.type}></li> : null}
-      <li className={active + "pskb-" + section.type + "-" + section.key}>
+      <li className={active + "mainnav-" + section.type + "-" + section.key}>
         <Link to={section.link}>
           <span>{section.name.toUpperCase()}</span>
         </Link>
