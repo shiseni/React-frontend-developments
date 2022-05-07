@@ -1,11 +1,27 @@
+.bw-doc#header {
+  display: none;
+}
+
+.bw-doc#main-container {
+  padding: 0;
+}
+
 .mid {
   height: 1080px;
   align-items: stretch;
 }
 
+.bg {
+  background: transparent;
+}
+
+.swiper {
+  border-radius: 50px 50px 0 0;
+}
+
 .gallery-photo-block {
   width: 97vw;
-  max-width: 1270px;
+  max-width: 1300px;
 }
 
 .lazy-load-image-loaded img {

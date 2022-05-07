@@ -1,0 +1,262 @@
+li[class^="mainnav-production"]:hover,
+.nav-production span:hover,
+li[class^="mainnav-production"] a:hover {
+  color: var(--color-production);
+}
+
+li[class^="mainnav-service"]:hover,
+.nav-service span:hover,
+li[class^="mainnav-service"] a:hover {
+  color: var(--color-service);
+}
+
+li[class^="mainnav-support"]:hover,
+.nav-support span:hover,
+li[class^="mainnav-support"] a:hover {
+  color: var(--color-support);
+}
+
+li[class^="mainnav-wholesale"]:hover,
+.nav-wholesale span:hover,
+li[class^="mainnav-wholesale"] a:hover {
+  color: var(--color-wholesale);
+}
+
+li[class^="active-mainnav-production"],
+.active-divider-production,
+li[class^="active-mainnav-production"] + div {
+  background: linear-gradient(0deg, var(--color-production-cloudy) 0%, var(--color-production) 100%);
+}
+
+li[class^="active-mainnav-service"],
+.active-divider-service,
+li[class^="active-mainnav-service"] + div {
+  background: linear-gradient(0deg, var(--color-service-cloudy) 0%, var(--color-service) 100%);
+}
+
+li[class^="active-mainnav-support"],
+.active-divider-support,
+li[class^="active-mainnav-support"] + div {
+  background: linear-gradient(0deg, var(--color-support-cloudy) 0%, var(--color-support) 100%);
+}
+
+li[class^="active-mainnav-wholesale"],
+.active-divider-wholesale,
+li[class^="active-mainnav-wholesale"] + div {
+  background: linear-gradient(0deg, var(--color-wholesale-cloudy) 0%, var(--color-wholesale) 100%);
+}
+
+div[class*="pskf"] {
+  background-color: #d9d9d9;
+}
+
+div[class*="pskf1-production"],
+div[class^="footer1-production"],
+.pskh-production,
+.active-nav-production {
+  background-color: var(--color-production);
+}
+
+div[class*="pskf2-service"],
+div[class^="footer2-service"],
+.pskh-service,
+.active-nav-service {
+  background-color: var(--color-service);
+}
+
+div[class*="pskf3-support"],
+div[class^="footer3-support"],
+.pskh-support,
+.active-nav-support {
+  background-color: var(--color-support);
+}
+
+div[class*="pskf4-wholesale"],
+div[class^="footer4-wholesale"],
+.pskh-wholesale,
+.active-nav-wholesale {
+  background-color: var(--color-wholesale);
+}
+
+div[class*="pskf1"],
+.pskh-production {
+  height: 100%;
+  flex-grow: 1;
+  text-align: center;
+  padding-right: 4px;
+}
+
+div[class*="pskf2"],
+.pskh-service {
+  height: 100%;
+  flex-grow: 1;
+  text-align: center;
+}
+
+div[class*="pskf3"],
+.pskh-support {
+  height: 100%;
+  flex-grow: 1;
+  text-align: center;
+}
+
+div[class*="pskf4"],
+.pskh-wholesale {
+  height: 100%;
+  flex-grow: 1;
+  text-align: center;
+}
+
+li[class*="divider"] {
+  width: 1px;
+  height: 41px;
+  background: linear-gradient(0deg, #ffffff 0%, #5a5a5a 30%, #5a5a5a 70%, #ffffff 100%);
+}
+
+li[class^="mainnav"] {
+  background: linear-gradient(0deg, #d9d9d9 0%, #ebebeb 100%);
+}
+
+li[class^="mainnav"] > a,
+li[class^="active-mainnav"] > a {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+div[class^="footer"] {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+}
+
+div[class*="mainnav"],
+li[class^="mainnav"],
+li[class^="active-mainnav"] {
+  flex-grow: 1;
+  height: 100%;
+}
+
+.psknav-buttom span {
+  white-space: pre-line;
+}
+
+.psknav-header {
+  display: flex;
+  height: 22px;
+  color: white;
+  font-weight: bold;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.psknav-buttom {
+  display: flex;
+  font-size: 10px;
+  height: 100%;
+  color: black;
+}
+
+.psknav-buttom ul {
+  display: flex;
+  flex-grow: 1000;
+  list-style-type: none;
+  height: 41px;
+  padding: 0;
+  margin: 0;
+}
+
+.psknav-buttom li {
+  text-align: center;
+  position: relative;
+}
+
+.psknav-buttom a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.nav-footer {
+  height: 2px;
+  width: 100%;
+}
+
+@media screen and (max-width: 1300px) {
+  li[class^="divider-service"]:first-child {
+    display: none;
+  }
+
+  li[class^="mainnav-production"] > div {
+    background-color: var(--color-production);
+  }
+
+  li[class^="mainnav-service"] > div {
+    background-color: var(--color-service);
+  }
+
+  li[class^="mainnav-wholesale"] > div {
+    background-color: var(--color-wholesale);
+  }
+
+  li[class^="mainnav-support"] > div {
+    background-color: var(--color-support);
+  }
+
+  .psknav-buttom {
+    flex-direction: column;
+  }
+
+  .psknav-header {
+    display: none;
+  }
+}
+@media screen and (max-width: 1166px) {
+  .psknav-buttom {
+    flex-direction: column;
+  }
+
+  .psknav-header {
+    display: none;
+  }
+}
+@media screen and (max-width: 690px) {
+  .mainnav-production-panel,
+  .active-mainnav-production-panel,
+  .mainnav-production-znz,
+  .active-mainnav-production-znz,
+  .mainnav-production-pult,
+  .active-mainnav-production-pult,
+  .mainnav-service-table,
+  .active-mainnav-service-table,
+  .mainnav-service-edev,
+  .active-mainnav-service-edev,
+  .mainnav-service-telemech,
+  .active-mainnav-service-telemech,
+  .mainnav-support-automotion,
+  .active-mainnav-support-automotion,
+  .mainnav-support-drives,
+  .active-mainnav-support-drives,
+  .mainnav-support-service,
+  .active-mainnav-support-service,
+  .mainnav-wholesale-prod,
+  .active-mainnav-wholesale-prod,
+  .mainnav-wholesale-equipment,
+  .active-mainnav-wholesale-equipment,
+  .mainnav-wholesale-component,
+  .active-mainnav-wholesale-component {
+    padding-top: 7px;
+  }
+
+  .psknav-buttom {
+    display: none;
+  }
+
+  li[class^="mainnav"] > a,
+  li[class^="active-mainnav"] > a {
+    width: 95%;
+    justify-content: flex-start;
+  }
+}

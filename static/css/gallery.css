@@ -1,0 +1,173 @@
+.mid {
+  align-items: flex-start;
+}
+
+.col-xs-9 {
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.gallery {
+  width: 100%;
+  height: 100%;
+  min-height: 106px;
+}
+
+.gallery img {
+  object-fit: contain;
+  background: url(../../static/bg_grd.png);
+}
+
+.gallery div {
+  position: relative;
+}
+
+.gallery p {
+  text-indent: 0;
+  font-size: 10px;
+  background-color: rgba(0, 0, 0, 0.3);
+  bottom: 3px;
+  margin: 0;
+  padding: 0 6px;
+  position: absolute;
+  width: 100%;
+  padding: 5px;
+}
+
+.gallery span {
+  color: white;
+}
+
+.gallery-scroll {
+  display: grid;
+  grid-auto-rows: min-content;
+  justify-items: center;
+  grid-template-columns: repeat(5, 1fr);
+  column-gap: 5px;
+  overflow: auto;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.empty,
+.loading {
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  grid-template-columns: 1fr !important;
+  font-size: 14px;
+}
+
+.empty span,
+.loading span {
+  padding: 20px 50px;
+  border-radius: 3px;
+}
+
+.empty span {
+  background: #d7d7d7;
+}
+
+@media screen and (min-width: 1167px) and (max-width: 1300px) {
+  .gallery {
+    min-height: 95px;
+  }
+}
+
+@media screen and (min-width: 691px) and (max-width: 1166px) {
+  .col-xs-9 {
+    max-width: unset;
+    flex-basis: 100%;
+  }
+
+  .gallery {
+    min-height: 90px;
+  }
+
+  .gallery-scroll {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media screen and (min-width: 479px) and (max-width: 690px) {
+  .gallery-scroll {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .gallery {
+    min-height: 82px;
+  }
+}
+
+@media screen and (max-width: 478px) and (min-width: 375px) {
+  .gallery div {
+    width: 100%;
+    height: 97%;
+  }
+
+  .gallery-scroll {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .gallery {
+    min-height: 96px;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .gallery-scroll {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery {
+    min-height: 163px;
+  }
+}
+
+.lazy-load-image-background.opacity {
+  opacity: 0;
+}
+
+.lazy-load-image-background.opacity > img {
+  width: 100%;
+  object-fit: fill;
+}
+
+.lazy-load-image-background.opacity.lazy-load-image-loaded {
+  opacity: 1;
+  transition: opacity 0.3s;
+}
+
+.lazy-load-image-background.blur {
+  filter: blur(3px);
+}
+
+.lazy-load-image-background.blur.lazy-load-image-loaded {
+  filter: blur(0);
+  transition: filter 0.3s;
+}
+
+.lazy-load-image-background.blur > img {
+  opacity: 0;
+}
+
+.lazy-load-image-background.blur.lazy-load-image-loaded > img {
+  opacity: 1;
+  transition: opacity 0.3s;
+}
+
+.gallery-scroll::-webkit-scrollbar {
+  width: 4px;
+  background-color: #00000026;
+}
+.gallery-scroll::-webkit-scrollbar-track {
+  border-radius: 4px;
+}
+.gallery-scroll::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: #6b6b6b;
+}
+.gallery-scroll:hover::-webkit-scrollbar-thumb {
+  background-color: #3b3b3b;
+}

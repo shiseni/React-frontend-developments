@@ -1,0 +1,130 @@
+.modal {
+  position: absolute;
+  overflow-y: auto;
+  top: 110px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 99;
+  transition: opacity 400ms;
+  border-radius: 25px;
+}
+
+.modal:target {
+  display: block;
+  pointer-events: auto;
+}
+
+.modal-dialog {
+  position: relative;
+  width: auto;
+  margin: 0px;
+}
+
+.modal-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-color: #e7e7e7;
+  background-clip: padding-box;
+  outline: 0;
+}
+
+.close {
+  float: right;
+  font-family: sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1;
+  color: #000;
+  text-shadow: 0 1px 0 #fff;
+  opacity: 0.5;
+  text-decoration: none;
+  margin-right: 10px;
+  margin-top: 7px;
+}
+
+.close:focus,
+.close:hover {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+  opacity: 0.75;
+}
+
+.modal-body {
+  position: relative;
+  flex: 1 1 auto;
+  padding: 0px;
+  overflow: auto;
+}
+
+.modal-body span {
+  font-size: 13px;
+  text-decoration: none;
+}
+
+#mobile_image > button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 1300px) {
+  li[class^="divider-service"]:first-child {
+    display: none;
+  }
+
+  li[class^="pskb-production"] > div {
+    background-color: var(--color-production);
+  }
+
+  li[class^="pskb-service"] > div {
+    background-color: var(--color-service);
+  }
+
+  li[class^="pskb-wholesale"] > div {
+    background-color: var(--color-wholesale);
+  }
+
+  li[class^="pskb-support"] > div {
+    background-color: var(--color-support);
+  }
+}
+
+@media screen and (max-width: 690px) {
+  .modal-dialog {
+    width: auto;
+    margin: 5px;
+  }
+
+  #mobile-mainnav-style {
+    touch-action: none;
+    list-style-type: none;
+    width: auto;
+    padding-left: 0;
+  }
+
+  #slogan-cut {
+    margin-left: 15px;
+    margin-top: 15px;
+  }
+
+  .header {
+    flex-wrap: wrap;
+  }
+
+  #mobile-mainnav-style li {
+    text-align: left;
+    vertical-align: middle;
+    position: relative;
+    margin-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  #mobile-mainnav-style a {
+    text-decoration: none;
+    color: black;
+    margin-left: 15px;
+  }
+}
