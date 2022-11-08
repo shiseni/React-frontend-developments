@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { DesktopAndAbove } from "./type_of_screen";
+import { FooterLine } from "../../constants";
 
 const FooterSection = (props) => {
-  let footer = [];
-  for (let i = 1; i < 5; i++) {
-    footer.push(<div key={i} className={`pskf${i}-${props.currentType}`} />);
-  }
-  return footer;
+  const { section, currentType } = props;
+  return <FooterLine type={section.type === currentType ? section.type : null} />;
 };
 
 export const Footer = () => {
@@ -32,7 +30,9 @@ export const Footer = () => {
     <DesktopAndAbove>
       <div className="bw-doc" id="nav-footer">
         <div className="nav-footer" style={{ display: "flex" }}>
-          <FooterSection currentType={currentType} />
+          {main_nav_header.map((section) => {
+            return <FooterSection section={section} currentType={currentType} />;
+          })}
         </div>
       </div>
     </DesktopAndAbove>

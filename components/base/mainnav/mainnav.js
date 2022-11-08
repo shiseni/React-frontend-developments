@@ -1,21 +1,19 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { footer } from "./functions";
 import { DesktopAndAbove, TabletAndAbove } from "./type_of_screen";
+import { MainNavButton, MainNavLine, MainNavFooter, MainNavHeader } from "../../constants";
 
 const BottomSection = (props) => {
   const { section, currentKey, currentType } = props;
-  let active = "";
-  section.key == currentKey ? (active = "active-") : null;
   return (
     <>
-      {section.id !== 1 ? <li className={active + "divider-" + section.type}></li> : null}
-      <li className={active + "mainnav-" + section.type + "-" + section.key}>
+      {section.id !== 0 ? <MainNavLine type={section.key == currentKey ? section.type : null} /> : null}
+      <MainNavButton type={section.key == currentKey ? section.type : null}>
         <Link to={section.link}>
           <span>{section.name.toUpperCase()}</span>
         </Link>
-        {footer(section.type, currentType)}
-      </li>
+        <MainNavFooter type={section.type === currentType ? section.type : null} />
+      </MainNavButton>
     </>
   );
 };
@@ -23,7 +21,7 @@ const BottomSection = (props) => {
 const Bottom = (props) => {
   const { main_nav_bottom, currentKey, currentType } = props;
   return (
-    <div className="psknav-buttom">
+    <div className="mainnav-bottom">
       <ul>
         {main_nav_bottom.first_line.map((section) => (
           <BottomSection key={section.id.toString()} section={section} currentKey={currentKey} currentType={currentType} />
@@ -39,13 +37,11 @@ const Bottom = (props) => {
 };
 
 const Upper = (props) => {
-  const { main_nav_header } = props;
+  const { main_nav_header, currentType } = props;
   return (
-    <div className="psknav-header">
+    <div className="mainnav-header">
       {main_nav_header.map((section) => (
-        <div key={section.id} className={"pskh-" + section.type}>
-          {section.name}
-        </div>
+        <MainNavHeader type={section.type === currentType ? section.type : null}>{section.name}</MainNavHeader>
       ))}
     </div>
   );
@@ -74,9 +70,9 @@ export const MainNav = () => {
 
   return (
     <div className="bw-doc" id="mainnav">
-      <div className="psknav">
+      <div className="mainnav">
         <DesktopAndAbove>
-          <Upper main_nav_header={main_nav_header} />
+          <Upper main_nav_header={main_nav_header} currentKey={currentKey} currentType={currentType} />
         </DesktopAndAbove>
         <TabletAndAbove>
           <Bottom main_nav_bottom={main_nav_bottom} currentKey={currentKey} currentType={currentType} />

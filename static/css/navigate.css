@@ -102,56 +102,32 @@
   height: 100%;
   max-width: 302px;
   min-width: 260px;
-  margin: 10px 10px 10px 0;
+  margin-right: 10px;
 }
 
-.active-production {
-  background-color: var(--color-production);
+.active-projects {
+  background-color: var(--color-projects);
 }
 
-.active-service {
-  background-color: var(--color-service);
+.active-something {
+  background-color: var(--color-something);
 }
 
-.active-support {
-  background-color: var(--color-support);
+.nav-projects:hover:not(.active-projects) p {
+  color: var(--color-projects);
 }
 
-.active-wholesale {
-  background-color: var(--color-wholesale);
-}
-
-.nav-production:hover:not(.active-production) p {
-  color: var(--color-production);
-}
-
-.nav-service:hover:not(.active-service) p {
-  color: var(--color-service);
-}
-
-.nav-support:hover:not(.active-support) p {
-  color: var(--color-support);
-}
-
-.nav-wholesale:hover:not(.active-wholesale) p {
-  color: var(--color-wholesale);
+.nav-something:hover:not(.active-something) p {
+  color: var(--color-something);
 }
 
 @media screen and (max-width: 1166px) {
-  .left-line-production {
-    border-left: 3px solid var(--color-production);
+  .left-line-projects {
+    border-left: 3px solid var(--color-projects);
   }
 
-  .left-line-service {
-    border-left: 3px solid var(--color-service);
-  }
-
-  .left-line-support {
-    border-left: 3px solid var(--color-support);
-  }
-
-  .left-line-wholesale {
-    border-left: 3px solid var(--color-wholesale);
+  .left-line-something {
+    border-left: 3px solid var(--color-something);
   }
 
   .nav-container {

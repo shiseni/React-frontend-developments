@@ -15,10 +15,8 @@
     <!--Main nav-->
     <script>
       let main_nav_header = [
-        { id: 1, name: "SOMETHING", type: "production" },
-        { id: 2, name: "SOMETHING", type: "service" },
-        { id: 3, name: "SOMETHING", type: "support" },
-        { id: 4, name: "SOMETHING", type: "wholesale" },
+        { id: 1, name: "CATEGORY", type: "category" },
+        { id: 2, name: "PROJECTS", type: "projects" },
       ];
 
       let main_nav_bottom = {
@@ -27,33 +25,29 @@
             id: 1,
             name: "Projects",
             link: "/projects",
-            type: "production",
-            key: "znz",
+            type: "category",
+            key: "projects",
             sub: [
               {
                 id: 1,
                 name: "Gallery",
                 link: "/projects/gallery",
-                type: "production",
-                key: "znz",
+                type: "category",
+                key: "projects",
                 logo: "gallery.png",
                 description: "Responsive gallery with styling that interacts with the entire page",
               },
             ],
           },
-          { id: 2, name: "Something", link: "#", type: "production", key: "pult" },
-          { id: 3, name: "Something", link: "#", type: "production", key: "panel" },
-          { id: 4, name: "Something", link: "#", type: "service", key: "table" },
-          { id: 5, name: "Something", link: "#", type: "service", key: "edev" },
-          { id: 6, name: "Something", link: "#", type: "service", key: "telemech" },
         ],
         second_line: [
-          { id: 7, name: "Something", link: "#", type: "support", key: "automotion" },
-          { id: 8, name: "Something", link: "#", type: "support", key: "drives" },
-          { id: 9, name: "Something", link: "#", type: "support", key: "service" },
-          { id: 10, name: "Something", link: "#", type: "wholesale", key: "prod" },
-          { id: 11, name: "Something", link: "#", type: "wholesale", key: "equipment" },
-          { id: 12, name: "Something", link: "#", type: "wholesale", key: "component" },
+          {
+            id: 1,
+            name: "Gallery",
+            link: "/projects/gallery",
+            type: "projects",
+            key: "gallery",
+          },
         ],
       };
     </script>

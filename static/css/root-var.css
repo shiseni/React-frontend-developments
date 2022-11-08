@@ -1,10 +1,6 @@
 :root {
-  --color-production: #99cc33;
-  --color-service: #6699ff;
-  --color-support: #9900cc;
-  --color-wholesale: #ff6600;
-  --color-production-cloudy: #d5eaac;
-  --color-service-cloudy: #c1d6ff;
-  --color-support-cloudy: #d69aea;
-  --color-wholesale-cloudy: #ffc19a;
+  --color-category: #00b7ff;
+  --color-projects: #9900cc;
+  --color-category-cloudy: #84b3df;
+  --color-projects-cloudy: #d69aea;
 }
